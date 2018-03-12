@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <% @products.each do |product| %>
+    <div class="col-xs-12 col-sm-4">
+      <!-- insert <div class="card"> -->
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path 'product_default.jpg' %>);">
+        <div class="card-category"><%= product.category %></div>
+        <div class="card-description">
+          <h2><%= product.title %></h2>
+          <p><%= product.price_per_day %> € par jour</p>
+        </div>
+        <a class="card-link" href="#" ></a>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
