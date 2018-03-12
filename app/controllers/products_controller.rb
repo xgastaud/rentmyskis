@@ -16,9 +16,6 @@ class ProductsController < ApplicationController
     @product.save
   end
 
-  def destroy
-  end
-
 private
 
   def product_params

@@ -5,3 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+xavier = User.new(email: "xgastaud@gmail.com")
+xavier.save
+
+emile = User.new(email: "emilesautet@gmail.com")
+emile.save
+
+product1 = Product.new(title: "skis salomon 175", category: "skis", price_per_day: 35.3)
+product1.user = xavier
+product1.save
+
+product2 = Product.new(title: "skis rossignol 185", category: "skis", price_per_day: 41)
+product2.user = emile
+product2.save
+
+product3 = Product.new(title: "surf oxbow 120", category: "surf", price_per_day: 23)
+product3.user = xavier
+product3.save
