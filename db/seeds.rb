@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-xavier = User.new(email: "xgastaud@gmail.com", password: "azerty")
+xavier = User.new(email: "xgastaud@gmail.com", password: "azerty", username: "xgastaud")
 xavier.save
 
 product1 = Product.new(title: "skis salomon 175", category: "skis", price_per_day: 35.3)
