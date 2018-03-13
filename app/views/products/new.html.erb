@@ -4,7 +4,7 @@
     <%= simple_form_for(@product) do |f| %>
       <div class="form-inputs">
         <%= f.input :title, required: true%>
-        <%= f.input :category, collection: ["Skis", "Snowboard", "Bâtons"]%>
+        <%= f.input :category, collection: ["Skis", "Snowboard", "Bâtons"], required: true %>
         <%= f.input :price_per_day, required: true %>
         <%= f.input :location, required: true %>
         <%= f.input :description, required: true %>
