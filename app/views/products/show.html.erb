@@ -11,3 +11,19 @@
 <br>
 <%= link_to "Show all products", products_path%>
 
+<%= simple_form_for(@bookings) do |f| %>
+  <% if @bookings.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @bookings.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
+
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :content %>
+  <%= f.submit "add a review", class: "btn btn-primary" %>
+<% end %>
