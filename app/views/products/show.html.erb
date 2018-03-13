@@ -1,9 +1,10 @@
+<div class="container">
 
 <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
   <div class="card-category"><%=@product.category%></div>
   <div class="card-description">
     <h2><%= @product.title %></h2>
-    <h2><%=@product.price_per_day%></h2>
+    <h2><%=@product.price_per_day%>€</h2>
     <p><%=@product.location%></p>
   </div>
   <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
@@ -14,7 +15,6 @@
 <%= link_to "Show all products", products_path%>
 
 
-<div class="container">
   <div class="col-sm-4 col-sm-offset-4">
     <h2>Create a new post</h2>
     <%= simple_form_for([@product, @booking]) do |f| %>
