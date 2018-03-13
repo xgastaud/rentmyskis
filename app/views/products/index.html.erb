@@ -9,7 +9,7 @@
           <h2><%= product.title %></h2>
           <p><%= product.price_per_day %> € par jour</p>
         </div>
-        <a class="card-link" href="#" ></a>
+        <%= link_to "", product_path(product), class: "card-link"%>
       </div>
     </div>
     <% end %>
