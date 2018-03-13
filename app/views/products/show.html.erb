@@ -1,13 +1,41 @@
-<%= @product.title %>
-<br>
-<%=@product.category%>
-<br>
-<%=@product.price_per_day%>
-<br>
-<%=@product.location%>
-<br>
-<%=@product.description%>
-<br>
-<br>
+
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+  <div class="card-category"><%=@product.category%></div>
+  <div class="card-description">
+    <h2><%= @product.title %></h2>
+    <h2><%=@product.price_per_day%>€ per day</h2>
+    <p><%=@product.location%></p>
+  </div>
+  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+</div>
+<p> <%=@product.description%> </p>
+
 <%= link_to "Show all products", products_path%>
 
+
+<div class="container">
+  <div class="col-sm-4 col-sm-offset-4">
+    <h2>Book your skis</h2>
+    <%= simple_form_for([@product, @booking]) do |f| %>
+      <% if @booking.errors.any? %>
+        <div class="errors-container">
+          <ul>
+            <% @booking.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% else %>
+        <div class="form-inputs">
+          <%= f.input :starts_at, as: :string, required: false, input_html: {id: "range_start"} %>
+          <%= f.input :ends_at, as: :string, required: false, input_html: {id: "range_end"} %>
+          <%= f.input :message, required: true %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Book" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
