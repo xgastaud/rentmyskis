@@ -1,17 +1,17 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js check --integrity
+  /usr/local/Cellar/node/9.8.0/bin/node /usr/local/Cellar/yarn/1.5.1/libexec/bin/yarn.js check --integrity
 
 PATH: 
-  /home/come/.rbenv/versions/2.4.3/lib/ruby/gems/2.4.0/bin:/home/come/.rbenv/versions/2.4.3/bin:/home/come/.rbenv/libexec:/home/come/.rbenv/plugins/ruby-build/bin:./bin:./node_modules/.bin:/home/come/.rbenv/shims:/home/come/.rbenv/bin:/home/come/bin:/home/come/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+  /Users/emilesautet/.rbenv/versions/2.4.3/lib/ruby/gems/2.4.0/bin:/Users/emilesautet/.rbenv/versions/2.4.3/bin:/usr/local/Cellar/rbenv/1.1.1/libexec:./bin:./node_modules/.bin:/Users/emilesautet/.rbenv/shims:/Users/emilesautet/.rbenv/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin
 
 Yarn version: 
   1.5.1
 
 Node version: 
-  8.9.4
+  9.8.0
 
 Platform: 
-  linux x64
+  darwin x64
 
 npm manifest: 
   {
@@ -7339,9 +7339,9 @@ Lockfile:
 
 Trace: 
   Error: Found 1 errors.
-      at new MessageError (/usr/share/yarn/lib/cli.js:186:110)
-      at /usr/share/yarn/lib/cli.js:59470:13
+      at new MessageError (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:186:110)
+      at /usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:59470:13
       at Generator.next (<anonymous>)
-      at step (/usr/share/yarn/lib/cli.js:98:30)
-      at /usr/share/yarn/lib/cli.js:109:13
+      at step (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:98:30)
+      at /usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:109:13
       at <anonymous>
