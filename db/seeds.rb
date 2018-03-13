@@ -20,3 +20,15 @@ product2.save
 product3 = Product.new(title: "surf oxbow 120", category: "surf", price_per_day: 23, location: "Chamonix", description: "The best pair of skis ever!!!!!!!!!!!!!!!!")
 product3.user = xavier
 product3.save
+
+product4 = Product.new(title: "surf oxbow 120", category: "surf", price_per_day: 23, location: "Chamonix", description: "The best pair of skis ever!!!!!!!!!!!!!!!!")
+product4.user = xavier
+product4.save
+
+product5 = Product.new(title: "surf oxbow 120", category: "surf", price_per_day: 23, location: "Chamonix", description: "The best pair of skis ever!!!!!!!!!!!!!!!!")
+product5.user = xavier
+product5.save
+
+product6 = Product.new(title: "surf oxbow 120", category: "surf", price_per_day: 23, location: "Chamonix", description: "The best pair of skis ever!!!!!!!!!!!!!!!!")
+product6.user = xavier
+product6.save
