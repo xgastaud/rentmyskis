@@ -11,19 +11,30 @@
 <br>
 <%= link_to "Show all products", products_path%>
 
-<%= simple_form_for(@bookings) do |f| %>
-  <% if @bookings.errors.any? %>
-    <div class="errors-container">
-      <ul>
-        <% @bookings.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-<% end %>
 
-<%= simple_form_for [@restaurant, @review] do |f| %>
-  <%= f.input :content %>
-  <%= f.submit "add a review", class: "btn btn-primary" %>
-<% end %>
+<div class="container">
+  <div class="col-sm-4 col-sm-offset-4">
+    <h2>Create a new post</h2>
+    <%= simple_form_for([@product, @booking]) do |f| %>
+      <% if @booking.errors.any? %>
+        <div class="errors-container">
+          <ul>
+            <% @booking.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% else %>
+        <div class="form-inputs">
+          <%= f.input :starts_at, as: :string, required: false, input_html: {id: "range_start"} %>
+          <%= f.input :ends_at, as: :string, required: false, input_html: {id: "range_end"} %>
+          <%= f.input :message, required: true %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Book" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
