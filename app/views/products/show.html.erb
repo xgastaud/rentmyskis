@@ -1,12 +1,14 @@
-<%= @product.name %>
-<% @product.doses.each do |dose|%>
+<%= @product.title %>
 <br>
-<%=dose.description%> - <%=dose.ingredient.name%>
-<%end%>
+<%=product.category%>
 <br>
+<%=product.price_per_day%>
 <br>
-<%= link_to "Add ingredient", new_cocktail_dose_path(@cocktail)%>
+<%=product.category%>
 <br>
+<%=product.category%>
 <br>
-<%= link_to "Show all cocktails", cocktails_path%>
+<%=product.category%>
+<br>
+<%= link_to "Show all products", products_path%>
 
