@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="col-sm-4 col-sm-offset-4">
+    <h2>Create a new post</h2>
+    <%= simple_form_for(@product) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :title, required: true%>
+        <%= f.input :category, required: true%>
+        <%= f.input :price_per_day, required: true %>
+        <%= f.input :location, required: true %>
+        <%= f.input :description, required: true %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Post" %>
+      </div>
+    <% end %>
+  </div>
+</div>
