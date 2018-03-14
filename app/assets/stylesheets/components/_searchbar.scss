@@ -1,0 +1,33 @@
+.searchbar {
+  display: flex;
+}
+.search-address {
+  background-color: white;
+  color: gray;
+  border-radius: 4px;
+  margin-right: 5px;
+  padding-left: 5px;
+  width: 400px;
+}
+.search-category {
+  background-color: white;
+  color: gray;
+  border-radius: 2px;
+  margin-right: 5px;
+  padding-left: 5px;
+  width: 150px;
+}
+.btn-searchbar {
+  background-color: rgb(103, 127, 150);
+  color: white;
+  border-radius: 4px;
+  margin-right: 5px;
+  width: 150px;
+}
+.index-searchbar {
+  margin-top: 100px;
+  font-size: 18px;
+  font-weight: lighter;
+  margin-bottom: 30px;
+  text-decoration: none;
+}
