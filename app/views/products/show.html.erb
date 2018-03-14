@@ -6,41 +6,48 @@
   }
   </script>
 <div class="big-container">
-  <div class="product-container">
+  <div class="row">
+    <div class="col-xs-9">
+      <div class="product-container">
 
-    <div class="banner-show" style="background-image: url('https://www.hypershop.fr/images/Fischer/Fischer-Fischer-RC4-worldcup-SC-+-Reliure-rcz12-Race-de-ski-de-slalom-2017,18-Neuf,-Taille-170-1418184365.jpg');">
-    </div>
-    <%#= image_path @product.photo %>
-    <div>
-      <h2> <%= @product.title %> </h2>
-      <h4> <%= @product.price_per_day %>€ per day </h4>
-      <p> <%= @product.location %> </p>
-      <p> <%= @product.description %> </p>
-    </div>
-  </div>
-  <div id="form">
-    <h3>Book your skis</h3>
-    <%= simple_form_for([@product, @booking]) do |f| %>
-      <% if @booking.errors.any? %>
-        <div class="errors-container">
-          <ul>
-            <% @booking.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
+        <div class="banner-show" style="background-image: url('https://www.hypershop.fr/images/Fischer/Fischer-Fischer-RC4-worldcup-SC-+-Reliure-rcz12-Race-de-ski-de-slalom-2017,18-Neuf,-Taille-170-1418184365.jpg');">
         </div>
-      <% else %>
-        <div class="form-inputs">
-          <%= f.input :starts_at, as: :string, required: false, input_html: {id: "range_start"} %>
-          <%= f.input :ends_at, as: :string, required: false, input_html: {id: "range_end"} %>
-          <%= f.input :message, required: true %>
+        <%#= image_path @product.photo %>
+        <div>
+          <h2> <%= @product.title %> </h2>
+          <h4> <%= @product.price_per_day %>€ per day </h4>
+          <p> <%= @product.location %> </p>
+          <p> <%= @product.description %> </p>
         </div>
+      </div>
+    </div>
+    <div class="col-xs-3">
+      <div id="form">
+        <h3>Book your skis</h3>
+        <%= simple_form_for([@product, @booking]) do |f| %>
+          <% if @booking.errors.any? %>
+            <div class="errors-container">
+              <ul>
+                <% @booking.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% else %>
+            <div class="form-inputs">
+              <%= f.input :starts_at, as: :string, required: false, input_html: {id: "range_start"} %>
+              <%= f.input :ends_at, as: :string, required: false, input_html: {id: "range_end"} %>
+              <%= f.input :message, required: true %>
+            </div>
 
-        <div class="form-actions">
-          <%= f.button :submit, "Book" %>
-        </div>
-      <% end %>
-    <% end %>
+            <div class="form-actions">
+              <%= f.button :submit, "Book" %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+    </div>
   </div>
 </div>
 <br>
