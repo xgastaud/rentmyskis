@@ -1,25 +1,18 @@
+<div class="big-container">
+  <div class="product-container">
 
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-  <div class="card-category"><%=@product.category%></div>
-  <div class="card-description">
-    <h2><%= @product.title %></h2>
-    <h2><%=@product.price_per_day%>€ per day</h2>
-    <p><%=@product.location%></p>
-    <p><%= @product.user.email %></p>
+    <div class="banner-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
+    </div>
+    <%#= image_path @product.photo (pour appeler la photo dans la vue) %>
+    <div>
+      <h2> <%= @product.title %> </h2>
+      <h4> <%= @product.price_per_day %>€ per day </h4>
+      <p> <%= @product.location %> </p>
+      <p> <%= @product.description %> </p>
+    </div>
   </div>
-  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-</div>
-
-  <%#= image_tag @product.photo (pour appeler la photo dans la vue) %>
-
-<p> <%=@product.description%> </p>
-
-<%= link_to "Show all products", products_path%>
-
-
-<div class="container">
-  <div class="col-sm-4 col-sm-offset-4">
-    <h2>Book your skis</h2>
+  <div id="form">
+    <h3>Book your skis</h3>
     <%= simple_form_for([@product, @booking]) do |f| %>
       <% if @booking.errors.any? %>
         <div class="errors-container">
@@ -43,3 +36,5 @@
     <% end %>
   </div>
 </div>
+<br>
+<%= link_to "Show all products", products_path%>

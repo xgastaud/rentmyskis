@@ -25,8 +25,8 @@
                 </div>
                 <div>
                   <%= link_to "See details", '#' %> |
-                  <%= link_to "Accept booking", '#' %> |
-                  <%= link_to "Reject booking", '#' %>
+                  <%= link_to "Accept booking", product_booking_path(booking.product.id, booking.id, type: "accepted"), method: 'put' %> |
+                  <%= link_to "Reject booking", product_booking_path(booking.product.id, booking.id, type: "rejected"), method: 'put' %>
                 </div>
               </li>
           </div>

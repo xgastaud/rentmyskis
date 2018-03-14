@@ -1,0 +1,39 @@
+.big-container {
+  display: flex;
+  align-items: stretch;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+.product-container {
+  width: 100%;
+  padding-top: 30px;
+  padding-right: 30px;
+}
+
+#form {
+  flex: 0 0 33%;
+  height: 100vh;
+  position: sticky !important; /* !important to override Gmaps inline CSS */
+  top: 0 !important;
+}
+
+.product-container h3 {
+  text-align:center
+}
+
+// .product-container h4 {
+//   text-align:center
+// }
+
+.banner-show {
+  color: white;
+  text-align: center;
+  height: 100vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 304px;
+  width: 750px;
+}
