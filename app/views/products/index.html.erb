@@ -1,20 +1,31 @@
 <div class="container">
   <div class="row">
     <h1>Select your equipment</h1>
+
+
     <% @products.each do |product| %>
+
     <div class="col-xs-12 col-sm-4">
-      <!-- insert <div class="card"> -->
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path product.photo %>);">
-        <div class="card-category"><%= product.category %></div>
-        <div class="card-description">
-          <h2><%= product.title %></h2>
-          <p><%= product.price_per_day %> € per day</p>
-          <p><%= product.user.email %></p>
+      <div class="card">
+      <%= link_to "", product_path(product), class: "card-link"%>
+
+        <div class="card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path product.photo %>);">
+
+          <div class="card-category"><%= product.category %></div>
+          <div class="card-price"><%= product.price_per_day %> € per day</div>
         </div>
-        <%= link_to "", product_path(product), class: "card-link"%>
+
+        <div class="card-description">
+          <div class="card-title"><%= product.title %></div>
+          <!-- <div class="card-user"><%= product.user.email %></div> -->
+        </div>
+
       </div>
     </div>
+
     <% end %>
+
+
   </div>
 </div>
 
