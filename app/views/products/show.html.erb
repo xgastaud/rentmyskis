@@ -1,4 +1,4 @@
-  <button onclick="goBack()"> < </button>
+<!--   <button onclick="goBack()"> < </button> -->
 
   <script>
   function goBack() {
@@ -8,7 +8,7 @@
 <div class="big-container">
   <div class="product-container">
 
-    <div class="banner-show" style="background-image: url('https://www.hypershop.fr/images/Fischer/Fischer-Fischer-RC4-worldcup-SC-+-Reliure-rcz12-Race-de-ski-de-slalom-2017,18-Neuf,-Taille-170-1418184365.jpg');">
+    <div class="banner-show" style="background-image: url(<%= image_path @product.photo %>);">
     </div>
     <%#= image_path @product.photo %>
     <div>
