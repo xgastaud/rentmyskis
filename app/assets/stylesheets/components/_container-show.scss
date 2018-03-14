@@ -1,0 +1,27 @@
+.big-container {
+  display: flex;
+  align-items: stretch;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+.product-container {
+  width: 100%;
+  padding-top: 30px;
+  padding-right: 30px;
+}
+
+#form {
+  flex: 0 0 33%;
+  height: 100vh;
+  position: sticky !important; /* !important to override Gmaps inline CSS */
+  top: 0 !important;
+}
+
+h3 {
+  text-align:center
+}
+
+.banner {
+  height: 304px;
+  width: 750px;
+}
