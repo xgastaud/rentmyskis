@@ -1,9 +1,16 @@
+  <button onclick="goBack()"> < </button>
+
+  <script>
+  function goBack() {
+      window.history.back();
+  }
+  </script>
 <div class="big-container">
   <div class="product-container">
 
-    <div class="banner-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
+    <div class="banner-show" style="background-image: url('https://www.hypershop.fr/images/Fischer/Fischer-Fischer-RC4-worldcup-SC-+-Reliure-rcz12-Race-de-ski-de-slalom-2017,18-Neuf,-Taille-170-1418184365.jpg');">
     </div>
-    <%#= image_path @product.photo (pour appeler la photo dans la vue) %>
+    <%#= image_path @product.photo %>
     <div>
       <h2> <%= @product.title %> </h2>
       <h4> <%= @product.price_per_day %>€ per day </h4>
@@ -37,4 +44,4 @@
   </div>
 </div>
 <br>
-<%= link_to "Show all products", products_path%>
+
