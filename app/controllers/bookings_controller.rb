@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
     end
     # save booking
     @booking.save
-    redirect_to dashboard_path
+    redirect_to dashboard_owner_path
   end
 
   private
