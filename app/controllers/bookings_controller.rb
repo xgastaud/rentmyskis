@@ -14,10 +14,31 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    # call accept or decline action depending on params
+    if params[:type] == "accepted"
+      accept
+    elsif params[:type] == "rejected"
+      reject
+    end
+    # save booking
+    @booking.save
+    redirect_to dashboard_path
+  end
+
   private
 
   def booking_param
     params.require(:booking).permit(:starts_at, :ends_at, :message)
+  end
+
+  def accept
+    @booking.status = "accepted"
+  end
+
+  def reject
+    @booking.status = "rejected"
   end
 
 end
