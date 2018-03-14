@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to product_path(@product)
     else
-      render 'product'
+      render :new
     end
   end
 
