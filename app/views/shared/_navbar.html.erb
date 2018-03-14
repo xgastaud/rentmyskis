@@ -11,6 +11,7 @@
 
       <!-- Links when logged in -->
       <%= link_to "Create your ad", new_product_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Bookings I made", dashboard_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -50,9 +51,8 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+        <li><%= link_to "Create your ad", new_product_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+        <li><%= link_to "Bookings I made", dashboard_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
       </ul>
     </div>
   </div>
