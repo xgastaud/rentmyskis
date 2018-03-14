@@ -1,17 +1,17 @@
 .big-container {
   display: flex;
   align-items: stretch;
-  padding-right: 30px;
+  padding-right: 60px;
   padding-left: 30px;
 }
 .product-container {
   width: 100%;
-  padding-top: 30px;
   padding-right: 30px;
+  padding-left: 30px;
 }
 
 #form {
-  flex: 0 0 33%;
+  flex: 0 0 30%;
   height: 100vh;
   position: sticky !important; /* !important to override Gmaps inline CSS */
   top: 0 !important;
@@ -34,6 +34,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 304px;
-  width: 750px;
+  height: 350px;
+  width: 650px;
 }
