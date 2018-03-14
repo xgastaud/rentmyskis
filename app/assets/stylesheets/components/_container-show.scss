@@ -17,11 +17,23 @@
   top: 0 !important;
 }
 
-h3 {
+.product-container h3 {
   text-align:center
 }
 
-.banner {
+// .product-container h4 {
+//   text-align:center
+// }
+
+.banner-show {
+  color: white;
+  text-align: center;
+  height: 100vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 304px;
   width: 750px;
 }
