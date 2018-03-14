@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   get "/dashboard" => "users#dashboard"
   get "/dashboard_owner" => "users#dashboard_owner"
   resources :products, only: [:index, :show, :new, :create] do
-    resources :bookings, only: [:show, :create]
+    resources :bookings, only: [:show, :create, :update]
   end
 end
