@@ -2,7 +2,8 @@ Arguments:
   /usr/local/Cellar/node/9.8.0/bin/node /usr/local/Cellar/yarn/1.5.1/libexec/bin/yarn.js check --integrity
 
 PATH: 
-  /Users/emilesautet/.rbenv/versions/2.4.3/lib/ruby/gems/2.4.0/bin:/Users/emilesautet/.rbenv/versions/2.4.3/bin:/usr/local/Cellar/rbenv/1.1.1/libexec:./bin:./node_modules/.bin:/Users/emilesautet/.rbenv/shims:/Users/emilesautet/.rbenv/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin
+
+  /Users/baptistechebassier/.rbenv/versions/2.4.3/lib/ruby/gems/2.4.0/bin:/Users/baptistechebassier/.rbenv/versions/2.4.3/bin:/usr/local/Cellar/rbenv/1.1.1/libexec:./bin:./node_modules/.bin:/Users/baptistechebassier/.rbenv/shims:/Users/baptistechebassier/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
 
 Yarn version: 
   1.5.1
@@ -20,6 +21,7 @@ npm manifest:
     "dependencies": {
       "@rails/webpacker": "^3.3.0",
       "bootstrap": "3",
+      "flatpickr": "^4.3.2",
       "jquery": "^3.3.1"
     },
     "devDependencies": {
@@ -2601,6 +2603,10 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/first-chunk-stream/-/first-chunk-stream-2.0.0.tgz#1bdecdb8e083c0664b91945581577a43a9f31d70"
     dependencies:
       readable-stream "^2.0.2"
+  
+  flatpickr@^4.3.2:
+    version "4.3.2"
+    resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.3.2.tgz#6a477043c075ef36c3ff54fadb49b936a64d635f"
   
   flatten@^1.0.2:
     version "1.0.2"

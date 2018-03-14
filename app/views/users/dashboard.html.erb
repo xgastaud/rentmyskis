@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <h1>Bookings I made</h1>
+    <ol>
+      <% @bookings.each do |booking| %>
+        <%# if booking.product.user != current_user %>
+          <div class="col-xs-12 col-sm-12">
+            <!-- insert <div class="card"> -->
+              <li>
+                <div class="booking_card">
+                  <div class="booking_card_top">
+                    Status: <%= booking.status %> |
+                    Title: <%= booking.product.title %> |
+                    Location: <%= booking.product.location %> |
+                    Owner: <%= booking.user.email %> |
+                    Category: <%= booking.product.category %>
+                  </div>
+                  <div class="booking_card_bottom">
+                    Start: <%= booking.starts_at.strftime("%d %B %Y %H:%M") %> |
+                    End: <%= booking.ends_at.strftime("%d %B %Y %H:%M") %> |
+                    Duration: <%= (booking.ends_at - booking.starts_at)/1.day %> days |
+                    Price per day: <%= booking.product.price_per_day %> € |
+                    Booking price: <%= (((booking.ends_at - booking.starts_at)/1.day) * booking.product.price_per_day).round %> €
+                  </div>
+                </div>
+                <div>
+                  <%= link_to "See details", '#' %> |
+                  <%= link_to "Accept booking", '#' %> |
+                  <%= link_to "Reject booking", '#' %>
+                </div>
+              </li>
+          </div>
+        <%# end %>
+      <% end %>
+    </ol>
+  </div>
+</div>
+
+
