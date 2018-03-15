@@ -8,6 +8,7 @@
   <div class="tab-content" data-toggle="tab1">
     <div id="my_bookings" >
       <% @bookings.each do |booking| %>
+<<<<<<< HEAD
       <div class="row">
         <div class="col-xs-12 col-sm-12">
           <div class="message">
@@ -29,6 +30,32 @@
               <%= booking.status %>
               <p><%= (((booking.ends_at - booking.starts_at)/1.day) * booking.product.price_per_day).round %> €</p>
             </div>
+=======
+        <%# if booking.product.user != current_user %>
+          <div class="col-xs-12 col-sm-12">
+            <!-- insert <div class="card"> -->
+              <li>
+                <div class="booking_card">
+                  <div class="booking_card_top">
+                    Status: <%= booking.status %> |
+                    Title: <%= booking.product.title %> |
+                    Address: <%= booking.product.address %> |
+                    <!-- Owner:  | -->
+                    Category: <%= booking.product.category %>
+                  </div>
+                  <div class="booking_card_bottom">
+                    Start: <%= booking.starts_at.strftime("%d %B %Y %H:%M") %> |
+                    End: <%= booking.ends_at.strftime("%d %B %Y %H:%M") %> |
+                    Duration: <%= (booking.ends_at - booking.starts_at)/1.day %> days |
+                    Price per day: <%= booking.product.price_per_day %> € |
+                    Booking price: <%= (((booking.ends_at - booking.starts_at)/1.day) * booking.product.price_per_day).round %> €
+                  </div>
+                </div>
+                <div>
+                  <!-- No links in Bookings I made -->
+                </div>
+              </li>
+>>>>>>> master
           </div>
         </div>
       </div>

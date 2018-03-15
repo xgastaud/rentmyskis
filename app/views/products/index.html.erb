@@ -1,22 +1,41 @@
-<div class="container">
-  <div class="row">
-    <h1>Select your equipment</h1>
+<div class="index-container">
+
+  <div class="card-container">
+    <!-- <h1>Select your equipment</h1> -->
     <% @products.each do |product| %>
-    <div class="col-xs-12 col-sm-4">
-      <!-- insert <div class="card"> -->
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path product.photo %>);">
-        <div class="card-category"><%= product.category %></div>
-        <div class="card-description">
-          <h2><%= product.title %></h2>
-          <p><%= product.price_per_day %> € per day</p>
-        </div>
+
+      <div class="col-xs-12 col-sm-6">
+        <div class="card">
         <%= link_to "", product_path(product), class: "card-link"%>
+
+          <div class="card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path product.photo %>);">
+            <div class="card-price">
+              <%= product.price_per_day %>€
+              <br>
+              / day
+            </div>
+            <div class="card-location">
+              <%= product.address %>
+            </div>
+            <div class="card-category">
+              <%= product.category %>
+            </div>
+          </div>
+
+          <div class="card-description" style="border-color: <%= Product::CATEGORY_COLORS[product.category]; %>">
+            <div class="card-title"><%= product.title %></div>
+          </div>
+
+        </div>
+>>>>>>> master
       </div>
-    </div>
+
     <% end %>
   </div>
+
+  <div class="map-container">
+    <div id="map" data-markers="<%= @markers.to_json %>"></div>
+  </div>
+
 </div>
-
-
-
 

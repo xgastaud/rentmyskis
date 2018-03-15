@@ -1,0 +1,10 @@
+.index-container {
+  display: flex;
+  align-items: stretch;
+}
+.card-container {
+  flex: 0 0 66%;
+}
+.map-container {
+  flex: 1 0 auto;
+}

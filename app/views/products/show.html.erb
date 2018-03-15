@@ -1,47 +1,44 @@
-<!--   <button onclick="goBack()"> < </button> -->
 
-  <script>
-  function goBack() {
-      window.history.back();
-  }
-  </script>
-<div class="big-container">
+<div class="product-show-container">
   <div class="product-container">
-
-    <div class="banner-show" style="background-image: url(<%= image_path @product.photo %>);">
+    <%#= link_to "<", products_path, class:"btn" %>
+    <div class="product-photo" style="background-image: url('<%= image_path @product.photo %>')">
+    <!-- <div class="product-photo" style="background-image: url('<%#= cloudinary_url @product.photo %>')"> -->
     </div>
-    <%#= image_path @product.photo %>
     <div>
-      <h2> <%= @product.title %> </h2>
+      <h2> <strong> <%= @product.title %> </strong> </h2>
       <h4> <%= @product.price_per_day %>€ per day </h4>
-      <p> <%= @product.location %> </p>
+      <p> <%= @product.address %> </p>
       <p> <%= @product.description %> </p>
     </div>
   </div>
-  <div id="form">
+  <div id="booking-form-container">
     <h3>Book your skis</h3>
-    <%= simple_form_for([@product, @booking]) do |f| %>
-      <% if @booking.errors.any? %>
-        <div class="errors-container">
-          <ul>
-            <% @booking.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% else %>
-        <div class="form-inputs">
-          <%= f.input :starts_at, as: :string, required: false, input_html: {id: "range_start"} %>
-          <%= f.input :ends_at, as: :string, required: false, input_html: {id: "range_end"} %>
-          <%= f.input :message, required: true %>
-        </div>
+    <div id="booking-form">
+      <div class="price">
+        <p>price per day</p>
+      </div>
+      <%= simple_form_for([@product, @booking]) do |f| %>
+        <% if @booking.errors.any? %>
+          <div class="errors-container">
+            <ul>
+              <% @booking.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% else %>
+          <div class="form-inputs">
+            <%= f.input :starts_at, as: :string, required: false, input_html: {id: "range_start"} %>
+            <%= f.input :ends_at, as: :string, required: false, input_html: {id: "range_end"} %>
+            <%= f.input :message, required: true %>
+          </div>
 
-        <div class="form-actions">
-          <%= f.button :submit, "Book" %>
-        </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Book", class: "btn btn-primary full-width" %>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
-<br>
-
