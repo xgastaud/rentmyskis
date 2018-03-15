@@ -1,9 +1,44 @@
 <div class="container">
   <h1>My Dashboard</h1>
   <ul class="nav nav-tabs">
-    <li><a class="tab tab-active" data-toggle="tab1" >My bookings</a></li>
-    <li><a class="tab" data-toggle="tab2">My products</a></li>
+    <li><a class="tab tab-active" data-toggle="tab2" >My bookings</a></li>
+    <li><a class="tab" data-toggle="tab1">My products</a></li>
   </ul>
+
+  <div class="tab-content hidden" data-toggle="tab2">
+    <div id="my_products">
+      <div class="row">
+        <% @requests.each do |request| %>
+        <div class="col-xs-12 col-sm-12">
+          <div class="message">
+            <div class="message-name">
+              <h3><%= request.product.address %></h3>
+              <p><%= request.product.category %></p>
+            </div>
+            <div class="message-body">
+              <h2><%= request.product.title %></h2>
+              <p><%= request.starts_at.strftime("%d %B %Y %H:%M") %> --
+              <%= request.ends_at.strftime("%d %B %Y %H:%M") %>
+              </p>
+            </div>
+            <div class="message-info">
+              <%= (request.ends_at - request.starts_at)/1.day %> days
+              <%= request.product.price_per_day %> €
+            </div>
+            <div class="message-status">
+              <%= request.status %>
+              <p><%= (((request.ends_at - request.starts_at)/1.day) * request.product.price_per_day).round %> €</p>
+            </div>
+          </div>
+          <!-- # Accept -->
+          <%= link_to "Accept booking", product_booking_path(request.product.id, request.id, type: "Accepted"), method: 'put' %> |
+          <!-- # Decline -->
+          <%= link_to "Reject booking", product_booking_path(request.product.id, request.id, type: "Rejected"), method: 'put' %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
   <div class="tab-content" data-toggle="tab1">
     <div id="my_bookings" >
@@ -35,38 +70,5 @@
       <% end %>
     </div>
   </div>
-  <div class="tab-content hidden" data-toggle="tab2">
-    <div id="my_products">
-      <div class="row">
-        <% @requests.each do |request| %>
-        <div class="col-xs-12 col-sm-12">
-          <div class="message">
-            <div class="message-name">
-              <h3><%= request.product.address %></h3>
-              <p><%= request.product.category %></p>
-            </div>
-            <div class="message-body">
-              <h2><%= request.product.title %></h2>
-              <p><%= request.starts_at.strftime("%d %B %Y %H:%M") %> --
-              <%= request.ends_at.strftime("%d %B %Y %H:%M") %>
-              </p>
-            </div>
-            <div class="message-info">
-              <%= (request.ends_at - request.starts_at)/1.day %> days
-              <%= request.product.price_per_day %> €
-            </div>
-            <div class="message-status">
-              <%= request.status %>
-              <p><%= (((request.ends_at - request.starts_at)/1.day) * request.product.price_per_day).round %> €</p>
-            </div>
-          </div>
-          <!-- # Accept -->
-          <%= link_to "Accept booking", product_booking_path(request.product.id, request.id, type: "accepted"), method: 'put' %> |
-          <!-- # Decline -->
-          <%= link_to "Reject booking", product_booking_path(request.product.id, request.id, type: "rejected"), method: 'put' %>
-        </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
+
 </div>
