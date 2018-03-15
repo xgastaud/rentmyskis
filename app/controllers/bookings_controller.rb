@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_param)
     @booking.product = @product
     @booking.user = current_user
-    @booking.status = "pending"
+    @booking.status = "Pending"
     if @booking.save
       redirect_to products_path
       # redirect_to booking_path(@booking) # En attente de la show de confirmation
@@ -17,14 +17,14 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     # call accept or decline action depending on params
-    if params[:type] == "accepted"
+    if params[:type] == "Accepted"
       accept
-    elsif params[:type] == "rejected"
+    elsif params[:type] == "Rejected"
       reject
     end
     # save booking
     @booking.save
-    redirect_to dashboard_owner_path
+    redirect_to dashboard_path
   end
 
   private
@@ -34,11 +34,11 @@ class BookingsController < ApplicationController
   end
 
   def accept
-    @booking.status = "accepted"
+    @booking.status = "Accepted"
   end
 
   def reject
-    @booking.status = "rejected"
+    @booking.status = "Rejected"
   end
 
 end
