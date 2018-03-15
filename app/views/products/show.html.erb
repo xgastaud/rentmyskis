@@ -1,7 +1,7 @@
 
 <div class="product-show-container">
   <div class="product-container">
-    <%#= link_to "<", products_path, class:"btn" %>
+    <%= link_to "<", products_path, class:"btn" %>
     <div class="product-photo" style="background-image: url('<%= image_path @product.photo %>')">
     <!-- <div class="product-photo" style="background-image: url('<%#= cloudinary_url @product.photo %>')"> -->
     </div>
@@ -14,7 +14,7 @@
   </div>
 
   <div id="booking-form-container">
-    <h3>Book your skis</h3>
+    <h3> <strong> Book your skis ! </strong> </h3>
     <div id="booking-form">
       <div class="price">
         <p> <strong> <span id="js-budget">--</span> €</strong></p>
