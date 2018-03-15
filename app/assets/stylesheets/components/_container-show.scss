@@ -1,39 +1,56 @@
-.big-container {
+
+.product-show-container {
   display: flex;
-  align-items: stretch;
-  padding-right: 60px;
-  padding-left: 30px;
+  padding: 0 50px;
+  background-color: white;
 }
+
+.product-photo {
+  background-size: cover;
+  background-position: center;
+  width: auto;
+  height: 500px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .product-container {
-  width: 100%;
-  padding-right: 30px;
-  padding-left: 30px;
+  flex: 0 0 70%;
+.h2 {
+  font-family: "Montserrat", "Open Sans", "sans-serif";
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+}
+
+#booking-form-container {
+  flex: 1 0 auto;
+}
+
+#booking-form {
+  border: 0.5px #e4e4e4 solid;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  .price {
+    border-bottom: 0.5px #e4e4e4 solid;
+  }
 }
 
 #form {
-  flex: 0 0 30%;
-  height: 100vh;
-  position: sticky !important; /* !important to override Gmaps inline CSS */
+  flex: 0 0 40%;
   top: 0 !important;
+  border: 0.5px solid grey;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
-.product-container h3 {
-  text-align:center
+
+.full-width {
+  width: 100%;
 }
 
-// .product-container h4 {
-//   text-align:center
-// }
-
-.banner-show {
-  color: white;
-  text-align: center;
-  height: 100vh;
-  /* if you have a 70px navbar => height: calc(100vh - 70px); */
-  background-size: cover !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 350px;
-  width: 650px;
+.sticky {
+  position: sticky !important; /* !important to override Gmaps inline CSS */
 }
