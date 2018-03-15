@@ -2,6 +2,31 @@
   <div class="banner-content">
     <h1>Rent My Skis</h1>
     <p>Find my ski equipment</p>
-    <%= link_to "List of skis", products_path, class: "btn btn-primary btn-lg" %>
+
+    <form action="/products" method="get">
+      <div class="searchbar">
+        <i class="fas fa-map-marker-alt"></i>
+        <input type="text" name="address" placeholder="Where?" class="search-address autocomplete">
+        <select name="distance" class="search-category">
+          <option value="" disabled selected hidden>Distance?</option>
+          <option value=5>-- any --</option>
+          <option value=5>within 5 km (default)</option>
+          <option value=50>within 50 km</option>
+          <option value=500>within 500 km</option>
+        </select>
+        <select name="category" class="search-category">
+          <option value="" disabled selected hidden>Category?</option>
+          <option value="">-- any --</option>
+          <option value="Skis">Skis</option>
+          <option value="Snowboard">Snowboard</option>
+          <option value="Other">Other</option>
+        </select>
+        <input type="submit" class="btn-searchbar">
+      </div>
+    </form>
+
+    <div class="index-searchbar">
+      <%= link_to "List of skis", products_path %>
+    </div>
   </div>
 </div>
