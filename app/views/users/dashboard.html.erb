@@ -1,37 +1,68 @@
 <div class="container">
-  <div class="row">
-    <h1>Bookings I made</h1>
-    <ol>
+  <h1>My Dashboard</h1>
+  <ul class="nav nav-tabs">
+    <li><a class="tab tab-active" data-toggle="tab1" >My bookings</a></li>
+    <li><a class="tab" data-toggle="tab2">My products</a></li>
+  </ul>
+
+  <div class="tab-content" data-toggle="tab1">
+    <div id="my_bookings" >
       <% @bookings.each do |booking| %>
-        <%# if booking.product.user != current_user %>
-          <div class="col-xs-12 col-sm-12">
-            <!-- insert <div class="card"> -->
-              <li>
-                <div class="booking_card">
-                  <div class="booking_card_top">
-                    Status: <%= booking.status %> |
-                    Title: <%= booking.product.title %> |
-                    Address: <%= booking.product.address %> |
-                    <!-- Owner:  | -->
-                    Category: <%= booking.product.category %>
-                  </div>
-                  <div class="booking_card_bottom">
-                    Start: <%= booking.starts_at.strftime("%d %B %Y %H:%M") %> |
-                    End: <%= booking.ends_at.strftime("%d %B %Y %H:%M") %> |
-                    Duration: <%= (booking.ends_at - booking.starts_at)/1.day %> days |
-                    Price per day: <%= booking.product.price_per_day %> € |
-                    Booking price: <%= (((booking.ends_at - booking.starts_at)/1.day) * booking.product.price_per_day).round %> €
-                  </div>
-                </div>
-                <div>
-                  <!-- No links in Bookings I made -->
-                </div>
-              </li>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12">
+          <div class="message">
+            <div class="message-name">
+              <h3><%= booking.product.location %></h3>
+              <p><%= booking.product.category %></p>
+            </div>
+            <div class="message-body">
+              <h2><%= booking.product.title %></h2>
+              <p><%= booking.starts_at.strftime("%d %B %Y %H:%M") %> --
+              <%= booking.ends_at.strftime("%d %B %Y %H:%M") %>
+              </p>
+            </div>
+            <div class="message-info">
+              <%= (booking.ends_at - booking.starts_at)/1.day %> days
+              <%= booking.product.price_per_day %> €
+            </div>
+            <div class="message-status">
+              <%= booking.status %>
+              <p><%= (((booking.ends_at - booking.starts_at)/1.day) * booking.product.price_per_day).round %> €</p>
+            </div>
           </div>
-        <%# end %>
+        </div>
+      </div>
       <% end %>
-    </ol>
+    </div>
+  </div>
+  <div class="tab-content hidden" data-toggle="tab2">
+    <div id="my_products">
+      <div class="row">
+        <% @requests.each do |request| %>
+        <div class="col-xs-12 col-sm-12">
+          <div class="message">
+            <div class="message-name">
+              <h3><%= request.product.location %></h3>
+              <p><%= request.product.category %></p>
+            </div>
+            <div class="message-body">
+              <h2><%= request.product.title %></h2>
+              <p><%= request.starts_at.strftime("%d %B %Y %H:%M") %> --
+              <%= request.ends_at.strftime("%d %B %Y %H:%M") %>
+              </p>
+            </div>
+            <div class="message-info">
+              <%= (request.ends_at - request.starts_at)/1.day %> days
+              <%= request.product.price_per_day %> €
+            </div>
+            <div class="message-status">
+              <%= request.status %>
+              <p><%= (((request.ends_at - request.starts_at)/1.day) * request.product.price_per_day).round %> €</p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
-
-
