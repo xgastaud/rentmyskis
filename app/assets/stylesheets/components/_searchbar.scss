@@ -1,19 +1,22 @@
 .searchbar {
-  flex: 1 1 auto;
+  display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
   .fas {
    margin-right: 5px;
   }
 }
 .search-address {
-  flex: 0 0 auto;
+  flex: 1 1 auto;
   background-color: white;
   color: gray;
   border-radius: 4px;
   margin-right: 5px;
   padding-left: 5px;
 }
-.search-category {
+.search-criteria {
+  flex: 0 0 auto;
   width: 150px;
   background-color: white;
   color: gray;
@@ -22,6 +25,7 @@
   padding-left: 5px;
 }
 .btn-searchbar {
+  flex: 0 0 auto;
   width: 150px;
   background-color: rgb(103, 127, 150);
   color: white;

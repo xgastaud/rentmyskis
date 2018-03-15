@@ -16,6 +16,14 @@
 
 .product-container {
   flex: 0 0 70%;
+  h2 {
+    text-align: left;
+    color: #00BBF0;
+    font-size: 48px;
+  }
+  h4 {
+    color: #00BBF0;
+  }
 }
 
 #booking-form-container {
@@ -32,8 +40,7 @@
     border-bottom: 0.5px #e4e4e4 solid;
     text-align: center;
     color: #00BBF0;
-    font-size: 24px;
-  }
+    font-size: 24px;  }
 }
 
 #form {
