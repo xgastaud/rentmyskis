@@ -1,8 +1,9 @@
 
 <div class="product-show-container">
   <div class="product-container">
-    <%= link_to "<", products_path, class:"btn" %>
-    <div class="product-photo" style="background-image: url('<%= cloudinary_url @product.photo %>')">
+    <%#= link_to "<", products_path, class:"btn" %>
+    <div class="product-photo" style="background-image: url('<%= image_path @product.photo %>')">
+    <!-- <div class="product-photo" style="background-image: url('<%#= cloudinary_url @product.photo %>')"> -->
     </div>
     <div>
       <h2> <strong> <%= @product.title %> </strong> </h2>
