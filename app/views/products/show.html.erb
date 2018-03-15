@@ -1,28 +1,20 @@
-  <button onclick="goBack()"> < </button>
 
-  <script>
-  function goBack() {
-      window.history.back();
-  }
-  </script>
-<div class="big-container">
-  <div class="row">
-    <div class="col-xs-9">
-      <div class="product-container">
+    <%= link_to "<", products_path, class:"btn" %>
 
-        <div class="banner-show" style="background-image: url('https://www.hypershop.fr/images/Fischer/Fischer-Fischer-RC4-worldcup-SC-+-Reliure-rcz12-Race-de-ski-de-slalom-2017,18-Neuf,-Taille-170-1418184365.jpg');">
-        </div>
-        <%#= image_path @product.photo %>
+<div class="row">
+  <div class="big-container">
+    <div class="col-xs-9 product-container" >
+      <!-- <div class="product-container"> -->
+        <%= image_tag @product.photo %>
         <div>
           <h2> <%= @product.title %> </h2>
           <h4> <%= @product.price_per_day %>€ per day </h4>
           <p> <%= @product.location %> </p>
           <p> <%= @product.description %> </p>
         </div>
-      </div>
+      <!-- </div> -->
     </div>
-    <div class="col-xs-3">
-      <div id="form">
+    <div class="col-xs-3" id="form">
         <h3>Book your skis</h3>
         <%= simple_form_for([@product, @booking]) do |f| %>
           <% if @booking.errors.any? %>
@@ -46,8 +38,6 @@
           <% end %>
         <% end %>
       </div>
-
-    </div>
   </div>
 </div>
 <br>

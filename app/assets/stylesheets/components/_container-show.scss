@@ -14,10 +14,12 @@
 }
 
 #form {
-  flex: 0 0 30%;
+  flex: 0 0 33%;
   height: 100vh;
   position: sticky !important; /* !important to override Gmaps inline CSS */
   top: 0 !important;
+  border: 1px solid grey;
+
 }
 
 .product-container h3 {
