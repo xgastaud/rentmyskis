@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
       @products = Product.where(category: params[:category]).near(params[:address],params[:distance].to_i)
 
     elsif params[:address].present? && params[:category].present?
-      @products = Product.where(category: params[:category]).near(params[:address],5)
+      @products = Product.where(category: params[:category]).near(params[:address],params[:distance].to_i)
 
     elsif params[:address].present? && params[:distance].present?
       @products = Product.near(params[:address],params[:distance].to_i)
