@@ -1,5 +1,9 @@
 .searchbar {
   display: flex;
+  align-items: center;
+  .fas {
+   margin-right: 5px;
+  }
 }
 .search-address {
   background-color: white;

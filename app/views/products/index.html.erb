@@ -2,7 +2,8 @@
   <div class="row">
     <h1>Select your equipment</h1>
     <!-- Comment traiter le cas des recherches sans paramètres? -->
-    <% @products.where(category: params[:category]).near(params[:address],50).each do |product| %>
+    <% @products.each do |product| %>
+    <%# @products.where(category: params[:category]).near(params[:address],params[:distance]).each do |product| %>
     <div class="col-xs-12 col-sm-4">
       <!-- insert <div class="card"> -->
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path product.photo %>);">
