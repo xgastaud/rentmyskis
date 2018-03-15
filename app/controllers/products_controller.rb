@@ -2,7 +2,24 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @products = Product.all
+    if params[:category].present? && params[:address].present? && params[:distance].present?
+      @products = Product.where(category: params[:category]).near(params[:address],params[:distance].to_i)
+
+    elsif params[:address].present? && params[:category].present?
+      @products = Product.where(category: params[:category]).near(params[:address],5)
+
+    elsif params[:address].present? && params[:distance].present?
+      @products = Product.near(params[:address],params[:distance].to_i)
+
+    elsif params[:address].present?
+      @products = Product.near(params[:address],5)
+
+    elsif params[:category].present?
+      @products = Product.where(category: params[:category])
+
+    else
+      @products = Product.all
+    end
   end
 
   def show

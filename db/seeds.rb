@@ -16,22 +16,22 @@ product1 = Product.new(title: "skis salomon 175 xavier", category: "Skis", price
 product1.user = xavier
 product1.save
 
-product2 = Product.new(title: "skis rossignol 185 emile", category: "Snowboard", price_per_day: 41, address: "Val d'Isère", description: "Carres affutées récemment")
+product2 = Product.new(title: "Snowboard rossignol 150 emile", category: "Snowboard", price_per_day: 41, address: "Chamonix", description: "Carres affutées récemment")
 product2.user = emile
 product2.save
 
-# product3 = Product.new(title: "surf oxbow 120", category: "Snowboard", price_per_day: 23, address: "Chamonix", description: "The best pair of skis ever!!!!!!!!!!!!!!!!")
+# product3 = Product.new(title: "Snowboard oxbow 120", category: "Snowboard", price_per_day: 23, address: "Chamonix", description: "The best pair of skis ever!!!!!!!!!!!!!!!!")
 # product3.user = emile
 # product3.save
 
-# product4 = Product.new(title: "surf quicksilver 100", category: "Snowboard", price_per_day: 27, address: "Les Arcs", description: "The best pair of skis ever!!!!!!!!!!!!!!!!")
+# product4 = Product.new(title: "Surf quicksilver 100", category: "Snowboard", price_per_day: 27, address: "Les Arcs", description: "The best pair of skis ever!!!!!!!!!!!!!!!!")
 # product4.user = emile
 # product4.save
 
-# product5 = Product.new(title: "surf Rossignol enfant", category: "Snowboard", price_per_day: 40, address: "Valmorel", description: "The best pair of skis ever!!!!!!!!!!!!!!!!")
+# product5 = Product.new(title: "Skis Rossignol enfant", category: "Skis", price_per_day: 40, address: "Valmorel", description: "The best pair of skis ever!!!!!!!!!!!!!!!!")
 # product5.user = emile
 # product5.save
 
-# product6 = Product.new(title: "surf Head 130", category: "Snowboard", price_per_day: 10, address: "Argentiere", description: "The best pair of skis ever!!!!!!!!!!!!!!!!")
+# product6 = Product.new(title: "SQurf Head 130", category: "Snowboard", price_per_day: 10, address: "Argentiere", description: "The best pair of skis ever!!!!!!!!!!!!!!!!")
 # product6.user = emile
 # product6.save
