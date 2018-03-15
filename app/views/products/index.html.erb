@@ -1,33 +1,63 @@
-<div class="container">
-  <div class="row">
-    <h1>Select your equipment</h1>
+<div class="index-container">
 
+    <div class="card-container">
+      <!-- <h1>Select your equipment</h1> -->
+      <% @products.each do |product| %>
 
-    <% @products.each do |product| %>
+        <div class="col-xs-12 col-sm-6">
+          <div class="card">
+          <%= link_to "", product_path(product), class: "card-link"%>
 
-    <div class="col-xs-12 col-sm-4">
-      <div class="card">
-      <%= link_to "", product_path(product), class: "card-link"%>
+            <div class="card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path product.photo %>);">
+              <div class="card-price">
+                <%= product.price_per_day %>€
+                <br>
+                / day
+              </div>
+              <div class="card-location">
+                <%= product.location %>
+              </div>
+              <div class="card-category">
+                <%= product.category %>
+              </div>
+            </div>
 
-        <div class="card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path product.photo %>);">
+            <div class="card-description" style="border-color: <%= Product::CATEGORY_COLORS[product.category]; %>">
+              <div class="card-title"><%= product.title %></div>
+            </div>
 
-          <div class="card-category"><%= product.category %></div>
-          <div class="card-price"><%= product.price_per_day %> € per day</div>
+          </div>
         </div>
 
-        <div class="card-description">
-          <div class="card-title"><%= product.title %></div>
-          <!-- <div class="card-user"><%= product.user.email %></div> -->
-        </div>
-
-      </div>
+      <% end %>
     </div>
 
-    <% end %>
-
+    <div class="map-container">
+      <div id="map"></div>
+    </div>
 
   </div>
-</div>
+
+
+<script>
+  function initMap() {
+    // Create a map object and specify the DOM element for display.
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 47.081012, lng: 2.398781999999983},
+      scrollwheel: false,
+      zoom: 6
+    });
+  }
+</script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Gmaps JavaScript -->
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzER7O10ZOUp7FloJzMe2r8X1GIQhgt7Q&callback=initMap">
+</script>
+
 
 
 
