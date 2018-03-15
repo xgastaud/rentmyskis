@@ -12,7 +12,7 @@
         <div class="col-xs-12 col-sm-12">
           <div class="message">
             <div class="message-name">
-              <h3><%= booking.product.location %></h3>
+              <h3><%= booking.product.address %></h3>
               <p><%= booking.product.category %></p>
             </div>
             <div class="message-body">
@@ -42,7 +42,7 @@
         <div class="col-xs-12 col-sm-12">
           <div class="message">
             <div class="message-name">
-              <h3><%= request.product.location %></h3>
+              <h3><%= request.product.address %></h3>
               <p><%= request.product.category %></p>
             </div>
             <div class="message-body">
@@ -60,6 +60,10 @@
               <p><%= (((request.ends_at - request.starts_at)/1.day) * request.product.price_per_day).round %> €</p>
             </div>
           </div>
+          <!-- # Accept -->
+          <%= link_to "Accept booking", product_booking_path(request.product.id, request.id, type: "accepted"), method: 'put' %> |
+          <!-- # Decline -->
+          <%= link_to "Reject booking", product_booking_path(request.product.id, request.id, type: "rejected"), method: 'put' %>
         </div>
         <% end %>
       </div>
