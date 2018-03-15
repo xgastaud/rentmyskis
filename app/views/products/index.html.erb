@@ -33,19 +33,8 @@
     </div>
 
     <div class="map-container">
-      <div id="map"></div>
+      <div id="map" data-markers="<%= @markers.to_json %>"></div>
     </div>
 
   </div>
 
-
-<script>
-  function initMap() {
-    // Create a map object and specify the DOM element for display.
-    var map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 47.081012, lng: 2.398781999999983},
-      scrollwheel: false,
-      zoom: 6
-    });
-  }
-</script>

@@ -20,6 +20,10 @@ class ProductsController < ApplicationController
     else
       @products = Product.all
     end
+
+    @markers = @products.map do |product|
+      { lat: product.latitude, lng: product.longitude }
+    end
   end
 
   def show
