@@ -53,7 +53,7 @@ product1.user = user1
 product1.save
 
 
-booking1 = Booking.new(starts_at: "Sat, 17 Mar 2018 12:00:00 UTC +00:00", ends_at: "Sat, 24 Mar 2018 12:00:00 UTC +00:00", status: "Pending", user_id: user2.id, product_id: product1.id, message: "I promise to take care of your skis :-)")
+# booking1 = Booking.new(starts_at: "Sat, 17 Mar 2018 12:00:00 UTC +00:00", ends_at: "Sat, 24 Mar 2018 12:00:00 UTC +00:00", status: "Pending", user_id: user2.id, product_id: product1.id, message: "I promise to take care of your skis :-)")
 
 # product2 = Product.new(title: "Snowboard rossignol 150", category: "Snowboard", price_per_day: 41, address: "Chamonix", description: "Carres affutées récemment")
 # product2.user = emile
