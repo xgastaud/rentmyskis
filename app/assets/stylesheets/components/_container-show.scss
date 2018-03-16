@@ -2,7 +2,13 @@
 .product-show-container {
   display: flex;
   padding: 0 50px;
-  background-color: white;
+/*   background-color: white;
+   */  a {
+    font-size: 32px;
+  }
+  a:hover {
+    text-decoration: none!important;
+  }
 }
 
 .product-photo {
@@ -16,6 +22,7 @@
 
 .product-container {
   flex: 0 0 70%;
+  padding-top: 20px;
   h2 {
     text-align: left;
     color: #00BBF0;
@@ -54,11 +61,28 @@
   padding-right: 30px;
 }
 
+.show-map {
+  border-top: 0.5px #e4e4e4 solid;
+}
 
 .full-width {
   width: 100%;
 }
 
 .sticky {
-  position: sticky !important; /* !important to override Gmaps inline CSS */
+  position: sticky !important;
+  top: 0 !important; /* !important to override Gmaps inline CSS */
+}
+
+.title {
+}
+
+.product-description {
+  display: flex;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 15px;
+  justify-content: space-between;
+  border-top: 0.5px #e4e4e4 solid;
+  border-bottom: 0.5px #e4e4e4 solid;
 }

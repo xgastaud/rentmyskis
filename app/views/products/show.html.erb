@@ -1,45 +1,56 @@
 
 <div class="product-show-container">
+  <a href="javascript:history.back()"> < </a>
   <div class="product-container">
     <%#= link_to "<", products_path, class:"btn" %>
     <div class="product-photo" style="background-image: url('<%= image_path @product.photo %>')">
     <!-- <div class="product-photo" style="background-image: url('<%#= cloudinary_url @product.photo %>')"> -->
     </div>
-    <div>
+    <div class="title">
       <h2> <strong> <%= @product.title %> </strong> </h2>
-      <h4> <span id="js-product-price"><%= @product.price_per_day %> </span>€ per day </h4>
-      <p> <%= @product.address %> </p>
-      <p> <%= @product.description %> </p>
     </div>
+    <div class="product-description">
+      <div class="description">
+        <h4> <span id="js-product-price"><%= @product.price_per_day %> </span>€ per day </h4>
+        <p> <%= @product.address %> </p>
+        <p> <%= @product.description %> </p>
+      </div>
+      <div>
+      <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=10&size=800x200&sensor=false&maptype=roadmap&markers=color:red|#{@product.address}&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
+      </div>
+    </div>
+
   </div>
 
   <div id="booking-form-container">
-    <h3> <strong> Book your skis ! </strong> </h3>
-    <div id="booking-form">
-      <div class="price">
-        <p> <strong> <span id="js-budget">--</span> €</strong></p>
-      </div>
-      <%= simple_form_for([@product, @booking]) do |f| %>
-        <% if @booking.errors.any? %>
-          <div class="errors-container">
-            <ul>
-              <% @booking.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% else %>
-          <div class="form-inputs">
-            <%= f.input :starts_at, as: :string, required: false, input_html: {id: "range_start", class: "booking-date"} %>
-            <%= f.input :ends_at, as: :string, required: false, input_html: {id: "range_end", class: "booking-date"} %>
-            <%= f.input :message, required: true %>
-          </div>
+    <div class="sticky">
+      <h3> <strong> Book your skis ! </strong> </h3>
+      <div id="booking-form">
+        <div class="price">
+          <p> <strong> <span id="js-budget">--</span> €</strong></p>
+        </div>
+        <%= simple_form_for([@product, @booking]) do |f| %>
+          <% if @booking.errors.any? %>
+            <div class="errors-container">
+              <ul>
+                <% @booking.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% else %>
+            <div class="form-inputs">
+              <%= f.input :starts_at, as: :string, required: false, input_html: {id: "range_start", class: "booking-date"} %>
+              <%= f.input :ends_at, as: :string, required: false, input_html: {id: "range_end", class: "booking-date"} %>
+              <%= f.input :message, required: true %>
+            </div>
 
-          <div class="form-actions">
-            <%= f.button :submit, "Book", class: "btn btn-primary full-width" %>
-          </div>
+            <div class="form-actions">
+              <%= f.button :submit, "Book", class: "btn btn-primary full-width" %>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
