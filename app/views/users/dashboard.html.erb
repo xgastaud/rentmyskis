@@ -1,77 +1,78 @@
 <div class="container">
-  <h1>My Dashboard</h1>
-  <div>
-  <ul class="nav nav-tabs">
-    <li><a class="tab tab-active" data-toggle="tab2" >My Bookings</a></li>
-    <li><a class="tab" data-toggle="tab1">My Requests</a></li>
-  </ul>
+  <div class="dashboard-container">
+    <h1>My Dashboard</h1>
+    <div>
+    <ul class="nav nav-tabs">
+      <li><a class="tab tab-active" data-toggle="tab2" >My Bookings</a></li>
+      <li><a class="tab" data-toggle="tab1">My Requests</a></li>
+    </ul>
 
-  <div class="tab-content hidden" data-toggle="tab2">
-    <div class="my_products">
-      <div class="row">
-        <% @requests.each do |request| %>
-        <div class="col-xs-12 col-sm-12">
-          <div class="message" style="border-color: <%= Booking::STATUS_COLORS[request.status]; %>">
-            <div class="message-status" style="color: <%= Booking::STATUS_COLORS[request.status]; %>">
-              <%= request.status %>
-            </div>
-            <div class="message-body">
-              <%= (((request.ends_at - request.starts_at)/1.day) * request.product.price_per_day).round %> €
-            </div>
-            <div class="message-body">
-              <!-- <p><%= request.product.category %></p> -->
-              <%= request.product.title %>
-            </div>
-            <!-- <div class="message-name">
-              <%= request.product.address %>
-            </div> -->
-            <div class="dashboard-date">
-              <div>
-                <ul>Start - <%= request.starts_at.strftime("%d %B %Y %H:%M") %></ul>
-                <ul>End - <%= request.ends_at.strftime("%d %B %Y %H:%M") %></ul>
+    <div class="tab-content hidden" data-toggle="tab2">
+      <div class="my_products">
+        <div class="row">
+          <% @requests.each do |request| %>
+          <div class="col-xs-12 col-sm-12">
+            <div class="message" style="border-color: <%= Booking::STATUS_COLORS[request.status]; %>">
+              <div class="message-status" style="color: <%= Booking::STATUS_COLORS[request.status]; %>">
+                <%= request.status %>
               </div>
-            </div>
-            <div>
-                <ul><%= link_to "Accept booking", product_booking_path(request.product.id, request.id, type: "Accepted"), method: 'put', class: "btn btn-primary full-width" %></ul>
-                <ul><%= link_to "Reject booking", product_booking_path(request.product.id, request.id, type: "Rejected"), method: 'put', class: "btn btn-danger full-width" %></ul>
-            </div>
-          </div>
-        </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-  <div class="tab-content" data-toggle="tab1">
-    <div class="my_bookings">
-      <div class="row">
-        <% @bookings.each do |booking| %>
-        <div class="col-xs-12 col-sm-12">
-          <div class="message" style="border-color: <%= Booking::STATUS_COLORS[booking.status]; %>">
-            <div class="message-status" style="color: <%= Booking::STATUS_COLORS[booking.status]; %>">
-              <%= booking.status %>
-            </div>
-            <div class="message-body">
-              <%= (((booking.ends_at - booking.starts_at)/1.day) * booking.product.price_per_day).round %> €
-            </div>
-            <div class="message-body">
-              <!-- <p><%= booking.product.category %></p> -->
-              <%= booking.product.title %>
-            </div>
-            <!-- <div class="message-name">
-              <%= booking.product.address %>
-            </div> -->
-            <div class="dashboard-date">
+              <div class="message-body">
+                <%= (((request.ends_at - request.starts_at)/1.day) * request.product.price_per_day).round %> €
+              </div>
+              <div class="message-body">
+                <!-- <p><%= request.product.category %></p> -->
+                <%= request.product.title %>
+              </div>
+              <!-- <div class="message-name">
+                <%= request.product.address %>
+              </div> -->
+              <div class="dashboard-date">
+                <div>
+                  <ul>Start - <%= request.starts_at.strftime("%d %B %Y %H:%M") %></ul>
+                  <ul>End - <%= request.ends_at.strftime("%d %B %Y %H:%M") %></ul>
+                </div>
+              </div>
               <div>
-                <ul>Start - <%= booking.starts_at.strftime("%d %B %Y %H:%M") %></ul>
-                <ul>End - <%= booking.ends_at.strftime("%d %B %Y %H:%M") %></ul>
+                  <ul><%= link_to "Accept booking", product_booking_path(request.product.id, request.id, type: "Accepted"), method: 'put', class: "btn btn-primary full-width" %></ul>
+                  <ul><%= link_to "Reject booking", product_booking_path(request.product.id, request.id, type: "Rejected"), method: 'put', class: "btn btn-danger full-width" %></ul>
               </div>
             </div>
           </div>
+          <% end %>
         </div>
-        <% end %>
+      </div>
+    </div>
+
+    <div class="tab-content" data-toggle="tab1">
+      <div class="my_bookings">
+        <div class="row">
+          <% @bookings.each do |booking| %>
+          <div class="col-xs-12 col-sm-12">
+            <div class="message" style="border-color: <%= Booking::STATUS_COLORS[booking.status]; %>">
+              <div class="message-status" style="color: <%= Booking::STATUS_COLORS[booking.status]; %>">
+                <%= booking.status %>
+              </div>
+              <div class="message-body">
+                <%= (((booking.ends_at - booking.starts_at)/1.day) * booking.product.price_per_day).round %> €
+              </div>
+              <div class="message-body">
+                <!-- <p><%= booking.product.category %></p> -->
+                <%= booking.product.title %>
+              </div>
+              <!-- <div class="message-name">
+                <%= booking.product.address %>
+              </div> -->
+              <div class="dashboard-date">
+                <div>
+                  <ul>Start - <%= booking.starts_at.strftime("%d %B %Y %H:%M") %></ul>
+                  <ul>End - <%= booking.ends_at.strftime("%d %B %Y %H:%M") %></ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-
 </div>
