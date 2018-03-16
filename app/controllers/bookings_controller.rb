@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.status = "Pending"
     if @booking.save
-      redirect_to products_path
+      redirect_to dashboard_path
       # redirect_to booking_path(@booking) # En attente de la show de confirmation
     else
       render 'products/show'

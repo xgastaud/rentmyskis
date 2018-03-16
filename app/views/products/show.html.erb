@@ -11,7 +11,7 @@
     </div>
     <div class="product-description">
       <div class="description">
-        <h4> <span id="js-product-price"><%= @product.price_per_day %> </span>€ per day </h4>
+        <h4> <span id="js-product-price"><%= @product.price_per_day.round %> </span>€ per day </h4>
         <p> <%= @product.address %> </p>
         <p> <%= @product.description %> </p>
       </div>
