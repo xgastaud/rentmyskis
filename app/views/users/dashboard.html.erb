@@ -44,33 +44,36 @@
 
   <div class="tab-content" data-toggle="tab1">
     <div id="my_bookings" >
-      <% @bookings.each do |booking| %>
-      <div class="row">
-        <div class="col-xs-12 col-sm-12">
-          <div class="message">
-            <div class="message-name">
-              <h3><%= booking.product.address %></h3>
-              <p><%= booking.product.category %></p>
+      <% @requests.each do |request| %>
+        <div class="col-xs-6 col-sm-12">
+          <div class="message" style="border-color: <%= Booking::STATUS_COLORS[request.status]; %>">
+            <div class="message-status" style="color: <%= Booking::STATUS_COLORS[request.status]; %>">
+              <%= request.status %>
             </div>
             <div class="message-body">
-              <h2><%= booking.product.title %></h2>
-              <p><%= booking.starts_at.strftime("%d %B %Y %H:%M") %> --
-              <%= booking.ends_at.strftime("%d %B %Y %H:%M") %>
-              </p>
+              <%= (((request.ends_at - request.starts_at)/1.day) * request.product.price_per_day).round %> €
             </div>
-            <div class="message-info">
-              <%= (booking.ends_at - booking.starts_at)/1.day %> days
-              <%= booking.product.price_per_day %> €
+            <div class="message-body">
+              <!-- <p><%= request.product.category %></p> -->
+              <%= request.product.title %>
             </div>
-            <div class="message-status">
-              <%= booking.status %>
-              <p><%= (((booking.ends_at - booking.starts_at)/1.day) * booking.product.price_per_day).round %> €</p>
+            <!-- <div class="message-name">
+              <%= request.product.address %>
+            </div> -->
+            <div class="dashboard-date">
+              <div>
+                <ul>Start - <%= request.starts_at.strftime("%d %B %Y %H:%M") %></ul>
+                <ul>End - <%= request.ends_at.strftime("%d %B %Y %H:%M") %></ul>
+              </div>
+            </div>
+            <div>
+                <ul><%= link_to "Accept booking", product_booking_path(request.product.id, request.id, type: "Accepted"), method: 'put', class: "btn btn-primary full-width" %></ul>
+                <ul><%= link_to "Reject booking", product_booking_path(request.product.id, request.id, type: "Rejected"), method: 'put', class: "btn btn-danger full-width" %></ul>
             </div>
           </div>
         </div>
+        <% end %>
       </div>
-      <% end %>
-    </div>
   </div>
   </div>
 </div>
