@@ -13,10 +13,11 @@
 .card-picture {
   position: relative;
   height: 200px;
-  background-size: cover !important;
   background-position: center;
   border-radius-top-left: 5px;
   border-radius-top-right: 5px;
+  background-size: contain !important;
+  background-repeat: no-repeat;
 }
 .card-price {
   position: absolute;

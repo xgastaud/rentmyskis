@@ -39,6 +39,7 @@ object = ["Helmet", "Mask", "Jacket", "Ski Boots", "Backpack"]
   puts "Saving #{product.title}"
 end
 
+
 25.times do |product|
   mycategory = category.sample
   product = Product.new(title: "#{object.sample} #{brands.sample}", price_per_day: "#{rand(40) + 5}", category: "Other", address: "#{address.sample}", description: "#{Faker::TheFreshPrinceOfBelAir.quote}")
@@ -48,7 +49,7 @@ end
 end
 
 
-product1 = Product.new(title: "skis salomon 175", category: "Skis", price_per_day: 36, address: "Tignes", description: "Ressemelés en février 2018")
+product1 = Product.new(title: "skis salomon 175", category: "Skis", price_per_day: 36, address: "Les Rosières, Chamonix", description: "Ressemelés en février 2018")
 product1.user = user1
 product1.save
 

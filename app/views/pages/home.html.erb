@@ -6,17 +6,17 @@
     <form action="/products" method="get" class="searchbar">
       <!-- <div class="searchbar"> -->
         <i class="fas fa-map-marker-alt"></i>
-        <input type="text" name="address" placeholder="Where " class="search-address autocomplete">
+        <input type="text" name="address" placeholder="Paris, Chamonix, St-Tropez..." class="search-address autocomplete">
         <select name="distance" class="search-criteria">
           <option value="" disabled selected hidden>Distance</option>
-          <option value=5>- any -</option>
+          <option value="">-- Any --</option>
           <option value=5>< 5 km </option>
-          <option value=50>> 50 km</option>
-          <option value=500>> 500 km</option>
+          <option value=50>< 50 km</option>
+          <option value=500>< 500 km</option>
         </select>
         <select name="category" class="search-criteria">
-          <option value="" disabled selected hidden>Category?</option>
-          <option value="">-- any --</option>
+          <option value="" disabled selected hidden>Category</option>
+          <option value="">-- Any --</option>
           <option value="Skis">Skis</option>
           <option value="Snowboard">Snowboard</option>
           <option value="Other">Other</option>
