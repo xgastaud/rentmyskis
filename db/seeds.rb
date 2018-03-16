@@ -11,20 +11,20 @@ User.destroy_all
 
 users = []
 
-user = User.new(email: "xgastaud@gmail.com", password: "azerty", username: "xgastaud")
-user.save
+user1 = User.new(email: "xgastaud@gmail.com", password: "azerty", username: "xgastaud")
+user1.save
 
-user = User.new(email: "emilesautet@gmail.com", password: "azerty", username: "emilesautet")
-user.save
-users << user
+user2 = User.new(email: "emilesautet@gmail.com", password: "azerty", username: "emilesautet")
+user2.save
+users << user2
 
-user = User.new(email: "baptiste.chebassier28@gmail.com", password: "azerty", username: "Giantbapt")
-user.save
-users << user
+user3 = User.new(email: "baptiste.chebassier28@gmail.com", password: "azerty", username: "Giantbapt")
+user3.save
+users << user3
 
-user = User.new(email: "come.mellerio@free.fr", password: "azerty", username: "comeller")
-user.save
-users << user
+user4 = User.new(email: "come.mellerio@free.fr", password: "azerty", username: "comeller")
+user4.save
+users << user4
 
 brands = ["Salomon", "Rossignol", "Atomic", "Head", "Quicksilver", "Oxbow", "Völkl"]
 category = ["Skis", "Snowboard"]
@@ -49,8 +49,11 @@ end
 
 
 product1 = Product.new(title: "skis salomon 175", category: "Skis", price_per_day: 36, address: "Tignes", description: "Ressemelés en février 2018")
-product1.user = xavier
+product1.user = user1
 product1.save
+
+
+# booking1 = Booking.new(starts_at: "Sat, 17 Mar 2018 12:00:00 UTC +00:00", ends_at: "Sat, 24 Mar 2018 12:00:00 UTC +00:00", status: "Pending", user_id: user2.id, product_id: product1.id, message: "I promise to take care of your skis :-)")
 
 # product2 = Product.new(title: "Snowboard rossignol 150", category: "Snowboard", price_per_day: 41, address: "Chamonix", description: "Carres affutées récemment")
 # product2.user = emile
