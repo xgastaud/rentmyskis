@@ -10,7 +10,7 @@
     <div class="my_products">
       <div class="row">
         <% @requests.each do |request| %>
-        <div class="col-xs-6 col-sm-12">
+        <div class="col-xs-12 col-sm-12">
           <div class="message" style="border-color: <%= Booking::STATUS_COLORS[request.status]; %>">
             <div class="message-status" style="color: <%= Booking::STATUS_COLORS[request.status]; %>">
               <%= request.status %>
@@ -46,7 +46,7 @@
     <div class="my_bookings">
       <div class="row">
         <% @bookings.each do |booking| %>
-        <div class="col-xs-6 col-sm-12">
+        <div class="col-xs-12 col-sm-12">
           <div class="message" style="border-color: <%= Booking::STATUS_COLORS[booking.status]; %>">
             <div class="message-status" style="color: <%= Booking::STATUS_COLORS[booking.status]; %>">
               <%= booking.status %>
