@@ -1,39 +1,41 @@
 <div class="container">
   <h1>My Dashboard</h1>
+  <div>
   <ul class="nav nav-tabs">
-    <li><a class="tab tab-active" data-toggle="tab2" >My bookings</a></li>
-    <li><a class="tab" data-toggle="tab1">My products</a></li>
+    <li><a class="tab tab-active" data-toggle="tab2" >My Bookings</a></li>
+    <li><a class="tab" data-toggle="tab1">My Requests</a></li>
   </ul>
 
   <div class="tab-content hidden" data-toggle="tab2">
     <div id="my_products">
       <div class="row">
         <% @requests.each do |request| %>
-        <div class="col-xs-12 col-sm-12">
-          <div class="message">
-            <div class="message-name">
-              <h3><%= request.product.address %></h3>
-              <p><%= request.product.category %></p>
+        <div class="col-xs-6 col-sm-12">
+          <div class="message" style="border-color: <%= Booking::STATUS_COLORS[request.status]; %>">
+            <div class="message-status" style="color: <%= Booking::STATUS_COLORS[request.status]; %>">
+              <%= request.status %>
             </div>
             <div class="message-body">
-              <h2><%= request.product.title %></h2>
-              <p><%= request.starts_at.strftime("%d %B %Y %H:%M") %> --
-              <%= request.ends_at.strftime("%d %B %Y %H:%M") %>
-              </p>
+              <%= (((request.ends_at - request.starts_at)/1.day) * request.product.price_per_day).round %> €
             </div>
-            <div class="message-info">
-              <%= (request.ends_at - request.starts_at)/1.day %> days
-              <%= request.product.price_per_day %> €
+            <div class="message-body">
+              <!-- <p><%= request.product.category %></p> -->
+              <%= request.product.title %>
             </div>
-            <div class="message-status">
-              <%= request.status %>
-              <p><%= (((request.ends_at - request.starts_at)/1.day) * request.product.price_per_day).round %> €</p>
+            <!-- <div class="message-name">
+              <%= request.product.address %>
+            </div> -->
+            <div class="dashboard-date">
+              <div>
+                <ul>Start - <%= request.starts_at.strftime("%d %B %Y %H:%M") %></ul>
+                <ul>End - <%= request.ends_at.strftime("%d %B %Y %H:%M") %></ul>
+              </div>
+            </div>
+            <div>
+                <ul><%= link_to "Accept booking", product_booking_path(request.product.id, request.id, type: "Accepted"), method: 'put', class: "btn btn-primary full-width" %></ul>
+                <ul><%= link_to "Reject booking", product_booking_path(request.product.id, request.id, type: "Rejected"), method: 'put', class: "btn btn-danger full-width" %></ul>
             </div>
           </div>
-          <!-- # Accept -->
-          <%= link_to "Accept booking", product_booking_path(request.product.id, request.id, type: "Accepted"), method: 'put' %> |
-          <!-- # Decline -->
-          <%= link_to "Reject booking", product_booking_path(request.product.id, request.id, type: "Rejected"), method: 'put' %>
         </div>
         <% end %>
       </div>
@@ -70,5 +72,5 @@
       <% end %>
     </div>
   </div>
-
+  </div>
 </div>
