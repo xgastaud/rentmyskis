@@ -73,7 +73,16 @@
   position: sticky !important;
   top: 0 !important; /* !important to override Gmaps inline CSS */
 }
+
+.title {
+}
+
 .product-description {
   display: flex;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 15px;
   justify-content: space-between;
+  border-top: 0.5px #e4e4e4 solid;
+  border-bottom: 0.5px #e4e4e4 solid;
 }

@@ -6,15 +6,17 @@
     <div class="product-photo" style="background-image: url('<%= image_path @product.photo %>')">
     <!-- <div class="product-photo" style="background-image: url('<%#= cloudinary_url @product.photo %>')"> -->
     </div>
+    <div class="title">
       <h2> <strong> <%= @product.title %> </strong> </h2>
+    </div>
     <div class="product-description">
-      <div>
+      <div class="description">
         <h4> <span id="js-product-price"><%= @product.price_per_day %> </span>€ per day </h4>
         <p> <%= @product.address %> </p>
         <p> <%= @product.description %> </p>
       </div>
       <div>
-      <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=800x200&sensor=false&maptype=roadmap&markers=color:red|#{@product.address}&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
+      <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=10&size=800x200&sensor=false&maptype=roadmap&markers=color:red|#{@product.address}&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
       </div>
     </div>
 
