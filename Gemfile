@@ -4,6 +4,8 @@ ruby '2.4.3'
 gem 'devise'
 
 gem "geocoder"
+gem 'faker'
+gem 'kaminari', '~> 1.1.1'
 
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'

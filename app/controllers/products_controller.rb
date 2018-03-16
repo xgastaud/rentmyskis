@@ -3,22 +3,22 @@ class ProductsController < ApplicationController
 
   def index
     if params[:category].present? && params[:address].present? && params[:distance].present?
-      @products = Product.where(category: params[:category]).near(params[:address],params[:distance].to_i)
+      @products = Product.where(category: params[:category]).near(params[:address],params[:distance].to_i).page(params[:page]).per(6)
 
     elsif params[:address].present? && params[:category].present?
-      @products = Product.where(category: params[:category]).near(params[:address],params[:distance].to_i)
+      @products = Product.where(category: params[:category]).near(params[:address],params[:distance].to_i).page(params[:page]).per(6)
 
     elsif params[:address].present? && params[:distance].present?
-      @products = Product.near(params[:address],params[:distance].to_i)
+      @products = Product.near(params[:address],params[:distance].to_i).page(params[:page]).per(6)
 
     elsif params[:address].present?
-      @products = Product.near(params[:address],5)
+      @products = Product.near(params[:address],5).page(params[:page]).per(6)
 
     elsif params[:category].present?
-      @products = Product.where(category: params[:category])
+      @products = Product.where(category: params[:category]).page(params[:page]).per(6)
 
     else
-      @products = Product.all
+      @products = Product.all.page(params[:page]).per(6)
     end
 
     @markers = @products.map do |product|
