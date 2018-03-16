@@ -9,19 +9,52 @@ Booking.destroy_all
 Product.destroy_all
 User.destroy_all
 
-xavier = User.new(email: "xgastaud@gmail.com", password: "azerty", username: "xgastaud")
-xavier.save
+users = []
 
-emile = User.new(email: "emilesautet@gmail.com", password: "azerty", username: "emilesautet")
-emile.save
+user = User.new(email: "xgastaud@gmail.com", password: "azerty", username: "xgastaud")
+user.save
 
-product1 = Product.new(title: "skis salomon 175 xavier", category: "Skis", price_per_day: 36, address: "Tignes", description: "Ressemelés en février 2018")
-product1.user = xavier
-product1.save
+user = User.new(email: "emilesautet@gmail.com", password: "azerty", username: "emilesautet")
+user.save
+users << user
 
-product2 = Product.new(title: "Snowboard rossignol 150 emile", category: "Snowboard", price_per_day: 41, address: "Chamonix", description: "Carres affutées récemment")
-product2.user = emile
-product2.save
+user = User.new(email: "baptiste.chebassier28@gmail.com", password: "azerty", username: "Giantbapt")
+user.save
+users << user
+
+user = User.new(email: "come.mellerio@free.fr", password: "azerty", username: "comeller")
+user.save
+users << user
+
+brands = ["Salomon", "Rossignol", "Atomic", "Head", "Quicksilver", "Oxbow", "Völkl"]
+category = ["Skis", "Snowboard"]
+address = ["Val d'Isère", "Valmorel", "Tignes", "Chamonix", "Les Houches", "Megève", "La Clusaz", "Avoriaz", "Courchevel", "Meribel", "Les Arcs", "L'Alpe d'Huez", "Argentière", "Le Grand Bornand", "Courmayeur", "Val Thorens", "La Plagne", "Les deux Alpes", "Les Ménuires", "Serre Chevalier", "Isola 2000"]
+object = ["Helmet", "Mask", "Jacket", "Ski Boots", "Backpack"]
+
+100.times do |product|
+  mycategory = category.sample
+  product = Product.new(title: "#{mycategory} #{brands.sample} #{rand(20) * 5 + 100} cm", price_per_day: "#{rand(40) + 20}", category: "#{mycategory}", address: "#{address.sample}", description: "#{Faker::TheFreshPrinceOfBelAir.quote}")
+  product.user = users.sample
+  product.save
+  puts "Saving #{product.title}"
+end
+
+25.times do |product|
+  mycategory = category.sample
+  product = Product.new(title: "#{object.sample} #{brands.sample}", price_per_day: "#{rand(40) + 5}", category: "Other", address: "#{address.sample}", description: "#{Faker::TheFreshPrinceOfBelAir.quote}")
+  product.user = users.sample
+  product.save
+  puts "Saving #{product.title}"
+end
+
+
+# product1 = Product.new(title: "skis salomon 175", category: "Skis", price_per_day: 36, address: "Tignes", description: "Ressemelés en février 2018")
+# product1.user = xavier
+# product1.save
+
+# product2 = Product.new(title: "Snowboard rossignol 150", category: "Snowboard", price_per_day: 41, address: "Chamonix", description: "Carres affutées récemment")
+# product2.user = emile
+# product2.save
 
 # product3 = Product.new(title: "Snowboard oxbow 120", category: "Snowboard", price_per_day: 23, address: "Chamonix", description: "The best pair of skis ever!!!!!!!!!!!!!!!!")
 # product3.user = emile
